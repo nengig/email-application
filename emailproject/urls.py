@@ -1,3 +1,4 @@
+from mailer.views import verify_credentials
 """
 URL configuration for emailproject project.
 
@@ -19,4 +20,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',verify_credentials, name="verify_credentials"),
 ]
