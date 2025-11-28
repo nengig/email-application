@@ -1,0 +1,72 @@
+{% comment %} {% extends 'content/base.html' %} {% endcomment %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="pageholder">
+    <div class="titleholder"> 
+        
+        <div class="title"> Mail time eeeeeeeeeee </div> 
+        
+    </div>
+
+    <form method="post" action="{% url 'my_form_view' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="linkholder">
+            <div class="form1 ml-3"> 
+                {{form.email|as_crispy_field}}  
+                {{ form.subject|as_crispy_field }}
+                {{ form.message|as_crispy_field }}
+                {{ form.attachments|as_crispy_field }}
+                </div>
+            <button class="ourbutton"type="submit"> Submit</button>
+        </div>
+    </form>
+
+    <div class="linkholder">
+  
+        <table id="ourtable3" class="myTable m-3">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>To</th>
+                    <th>Subject</th>
+                    <th>Sent at</th>
+                    <th>Attachments</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for a in mydata %}
+                 <tr>
+                    <td> {{a.id}} </td>
+                    <td> {{a.email}} </td>
+                    <td> {{a.subject}} </td>
+                    <td> {{a.created_at}} </td>
+                    <td>
+                        {% if a.attachments.all %}
+                            {% for attachment in a.attachments.all %}
+                                <p><a href="{{ attachment.file.url }}" target="_blank">{{ attachment.file.name }}</a></p>
+                            {% endfor %}
+                        {% else %}
+                            <p>No attachments</p>
+                        {% endif %}
+                    </td>
+                 </tr>
+
+                {% endfor%}
+            </tbody>
+
+            
+        </table>
+
+     </div>
+
+</div>
+
+</body>
+
+
+        
+
+{% endblock %}
