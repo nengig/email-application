@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 from mailer.views import verify_credentials
+>>>>>>> 3eae31368775f537757686cf6f195e1761f162af
 """
 URL configuration for emailproject project.
 
@@ -17,8 +20,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
+from mailer.views import *
+=======
+>>>>>>> 3eae31368775f537757686cf6f195e1761f162af
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',verify_credentials, name="verify_credentials"),
+<<<<<<< HEAD
+    path('compose/',  EmailView.as_view(), name='my_form_view')
+=======
+>>>>>>> 3eae31368775f537757686cf6f195e1761f162af
 ]
