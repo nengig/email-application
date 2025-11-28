@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from django.core.validators import validate_email
 
 # Create your models here.
@@ -22,3 +23,7 @@ class Attachment(models.Model):
 
     def __str__(self):
         return self.file.name
+=======
+
+# Create your models here.
+>>>>>>> 3eae31368775f537757686cf6f195e1761f162af
